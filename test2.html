@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+</head>
+<body>
+    <ul id="product-list"></ul>
+
+    <script>
+        
+        const products = [
+            { name: 'Headphones', price: '$23', description: 'This is a description.' },
+            { name: 'Keyboard', price: '$50', description: 'This is a description.' },
+            { name: 'iPhone', price: '$1000', description: 'This is a description.' }
+        ];
+
+        
+        function createProductList() {
+            const productList = document.getElementById('product-list');
+
+            products.forEach(product => {
+                const productItem = document.createElement('li');
+                
+        
+                const productName = document.createElement('strong');
+                productName.textContent = `${product.name} - ${product.price}`;
+                
+        
+                const productDescription = document.createElement('p');
+                productDescription.textContent = product.description;
+
+        
+                productItem.appendChild(productName);
+                productItem.appendChild(productDescription);
+productList.style.backgroundColor='grey'
+productList.style.display='inline-block'
+productList.style.padding='25px'
+                
+                productList.appendChild(productItem);
+            });
+        }
+
+        
+        createProductList();
+    </script>
+</body>
+</html>
