@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        #note-input {
+            width: 300px;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #add-note {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #notes {
+            margin-top: 20px;
+        }
+        .note {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .note strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Notes</h1>
+    <div>
+        <input type="text" id="note-input" placeholder="Type your note">
+        <button id="add-note">+ Create</button>
+    </div>
+    <div id="notes">
+    </div>
+
+    <script>
+
+        function addNote() {
+            const noteInput = document.getElementById('note-input');
+            const noteText = noteInput.value.trim();
+
+            if (noteText !== "") {
+                const noteDiv = document.createElement('div');
+                noteDiv.className = 'note';
+
+
+                const noteTitle = document.createElement('strong');
+                const noteCount = document.querySelectorAll('.note').length + 1;
+                noteTitle.textContent = `Note ${noteCount}`;
+
+
+                const noteContent = document.createElement('p');
+                noteContent.textContent = noteText;
+
+                noteDiv.appendChild(noteTitle);
+                noteDiv.appendChild(noteContent);
+
+                document.getElementById('notes').appendChild(noteDiv);
+                noteInput.value = '';
+            }
+        }
+
+        
+        document.getElementById('add-note').addEventListener('click', addNote);
+
+        
+        document.getElementById('note-input').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                addNote();
+            }
+        });
+    </script>
+</body>
+</html>
