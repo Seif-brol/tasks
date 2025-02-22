@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Colors</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        
+        function createNumbers() {
+            const container = document.getElementById('container');
+
+            for (let i = 0; i <= 100; i++) {
+                const numberDiv = document.createElement('div');
+                numberDiv.textContent = i;
+
+        
+                if (i % 2 === 0) {
+                    numberDiv.style.backgroundColor = 'brown';
+                } else {
+                    numberDiv.style.backgroundColor = 'blue';
+                }
+
+                
+                numberDiv.style.width = '30px'; 
+                numberDiv.style.display = 'inline-block';
+                numberDiv.style.padding='20px'
+                numberDiv.style.margin='7px'
+                
+                container.appendChild(numberDiv);
+            }
+        }
+
+                createNumbers();
+    </script>
+</body>
+</html>
