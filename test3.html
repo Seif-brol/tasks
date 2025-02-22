@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 200px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #thank-you-message {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-group">
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name">
+    </div>
+    <div class="form-group">
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name">
+    </div>
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age">
+    </div>
+    <div class="form-group">
+        <label for="course">Course:</label>
+        <input type="text" id="course">
+    </div>
+    <button id="register">Register</button>
+
+    <div id="thank-you-message" style="display: none;"></div>
+
+    <script>
+        function handleRegistration() {
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const age = document.getElementById('age').value;
+            const course = document.getElementById('course').value;
+
+            const thankYouMessage = document.getElementById('thank-you-message');
+            thankYouMessage.style.display = 'block';
+            thankYouMessage.innerHTML = `
+                <p>Thank You for the Registration!</p>
+                <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>Course:</strong> ${course}</p>
+            `;
+        }
+
+        document.getElementById('register').addEventListener('click', handleRegistration);
+    </script>
+</body>
+</html>
